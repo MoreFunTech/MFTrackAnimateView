@@ -1,0 +1,6 @@
+framework module Pods_MFTrackAnimateView_Tests {
+  umbrella header "Pods-MFTrackAnimateView_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
