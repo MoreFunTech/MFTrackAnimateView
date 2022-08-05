@@ -1,0 +1,16 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'MFTrackAnimateView_Example' do
+  pod 'MFTrackAnimateView', :path => '../'
+
+  target 'MFTrackAnimateView_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+    pod 'Expecta'
+    pod 'FBSnapshotTestCase'
+    pod 'Expecta+Snapshots'
+  end
+end
