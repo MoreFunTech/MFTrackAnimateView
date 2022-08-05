@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MFTrackAnimateView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of MFTrackAnimateView.'
+  s.version          = '0.0.1'
+  s.summary          = 'This is a view for some track animate we always use'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+We always use this views to show animate create pop or anywhere need track animate
                        DESC
 
   s.homepage         = 'https://github.com/NealWills/MFTrackAnimateView'
