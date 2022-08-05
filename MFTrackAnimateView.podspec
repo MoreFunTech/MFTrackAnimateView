@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 We always use this views to show animate create pop or anywhere need track animate
                        DESC
 
-  s.homepage         = 'https://github.com/NealWills/MFTrackAnimateView'
+  s.homepage         = 'https://github.com/MoreFunTech/MFTrackAnimateView.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'NealWills' => 'NealWills93@gmail.com' }
