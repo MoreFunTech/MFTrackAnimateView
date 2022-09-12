@@ -30,8 +30,6 @@
                                anchorPoint1:(CGPoint)anchorPoint1
                                anchorPoint2:(CGPoint)anchorPoint2;
 
-
-
 /**
  * 快速构建圆弧曲线
  * @param centerPoint 圆心

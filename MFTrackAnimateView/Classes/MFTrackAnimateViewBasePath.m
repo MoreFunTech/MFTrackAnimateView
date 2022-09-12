@@ -33,10 +33,16 @@
                            startCircleAngle:(CGFloat)startCircleAngle
                             stopCircleAngle:(CGFloat)stopCircleAngle
                        isDirectionClockwise:(BOOL)isDirectionClockwise {
+
+    CGFloat startAngle = startCircleAngle / 360.0 * M_PI * 2;
+    CGFloat endAngle = stopCircleAngle / 360.0 * M_PI * 2;
+    double startPointX = sin(startAngle + M_PI_2) * radius + centerPoint.x;
+    double startPointY = cos(startAngle + M_PI_2) * radius + centerPoint.y;
+
     UIBezierPath *path = [UIBezierPath bezierPath];
-    CGPoint startPoint = CGPointMake(radius * sin(M_2_PI * (startCircleAngle / 360.0)), radius * cos(M_2_PI * (startCircleAngle / 360.0)));
-    [path moveToPoint:startPoint];
-    [path addArcWithCenter:centerPoint radius:radius startAngle:M_2_PI * (startCircleAngle / 360.0) endAngle:M_2_PI * (stopCircleAngle / 360.0) clockwise:isDirectionClockwise];
+    CGPoint startPoint = CGPointMake(startPointX, startPointY);
+//    [path moveToPoint:startPoint];
+    [path addArcWithCenter:centerPoint radius:radius startAngle:startAngle endAngle:endAngle clockwise:isDirectionClockwise];
     return path;
 }
 

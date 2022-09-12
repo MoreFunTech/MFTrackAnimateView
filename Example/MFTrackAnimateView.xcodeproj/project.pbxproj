@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DF863C83BDAD7DFED9420D0 /* Pods_MFTrackAnimateView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C736945A965FD438248D252 /* Pods_MFTrackAnimateView_Tests.framework */; };
+		338828948708FA93F6D04DD6 /* MFViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 338825280F2012B5F3386194 /* MFViewItem.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		33792C4A56D9D9E2A2A44F86 /* MFTrackAnimateView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MFTrackAnimateView.podspec; path = ../MFTrackAnimateView.podspec; sourceTree = "<group>"; };
+		338825280F2012B5F3386194 /* MFViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFViewItem.m; sourceTree = "<group>"; };
+		33882E6861182390F23A2652 /* MFViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFViewItem.h; sourceTree = "<group>"; };
 		37B5DC2E18F0550757AFB246 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		44CE84D8966951296BB77FD8 /* Pods-MFTrackAnimateView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFTrackAnimateView_Example.release.xcconfig"; path = "Target Support Files/Pods-MFTrackAnimateView_Example/Pods-MFTrackAnimateView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MFTrackAnimateView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFTrackAnimateView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +143,8 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				338825280F2012B5F3386194 /* MFViewItem.m */,
+				33882E6861182390F23A2652 /* MFViewItem.h */,
 			);
 			name = "Example for MFTrackAnimateView";
 			path = MFTrackAnimateView;
@@ -392,6 +397,7 @@
 				6003F59E195388D20070C39A /* MFAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* MFViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				338828948708FA93F6D04DD6 /* MFViewItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
