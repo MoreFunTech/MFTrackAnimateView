@@ -10,6 +10,10 @@
 #endif
 #endif
 
+#import "MFTrackAnimateView.h"
+#import "MFTrackAnimateViewBaseAnimate.h"
+#import "MFTrackAnimateViewBasePath.h"
+#import "MFTrackAnimateViewBaseView.h"
 
 FOUNDATION_EXPORT double MFTrackAnimateViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char MFTrackAnimateViewVersionString[];
