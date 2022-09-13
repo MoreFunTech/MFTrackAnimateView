@@ -26,7 +26,6 @@
     return model;
 }
 
-
 @end
 
 @interface MFTrackAnimateViewRotateExpandView ()

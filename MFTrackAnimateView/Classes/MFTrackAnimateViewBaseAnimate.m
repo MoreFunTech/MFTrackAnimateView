@@ -12,7 +12,7 @@
 @property(nonatomic, assign) CFTimeInterval delay;
 
 @property(nonatomic) UIBezierPath *path;
-@property(nonatomic) BOOL removeForwards;
+@property(nonatomic) BOOL removedOnCompletion;
 @property(nonatomic) int repeatCount;
 @property(nonatomic) MFTrackAnimateViewBaseAnimateTimingFunctionStyle timingFunctionStyle;
 @property(nonatomic) MFTrackAnimateViewBaseAnimateFillModeStyle fillMode;
@@ -62,7 +62,7 @@
     __weak typeof(self) weakSelf = self;
     return ^(BOOL removeOnComplete) {
         weakSelf.animate.removedOnCompletion = removeOnComplete;
-        weakSelf.removeForwards = removeOnComplete;
+        weakSelf.removedOnCompletion = removeOnComplete;
         return weakSelf;
     };
 }

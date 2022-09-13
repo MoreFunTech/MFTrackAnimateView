@@ -16,6 +16,7 @@
     [path moveToPoint:startPoint];
     [path addQuadCurveToPoint:endPoint controlPoint:anchorPoint];
     return path;
+
 }
 
 + (UIBezierPath *)bezierPathWithStartPoint:(CGPoint)startPoint
@@ -41,7 +42,6 @@
 
     UIBezierPath *path = [UIBezierPath bezierPath];
     CGPoint startPoint = CGPointMake(startPointX, startPointY);
-//    [path moveToPoint:startPoint];
     [path addArcWithCenter:centerPoint radius:radius startAngle:startAngle endAngle:endAngle clockwise:isDirectionClockwise];
     return path;
 }

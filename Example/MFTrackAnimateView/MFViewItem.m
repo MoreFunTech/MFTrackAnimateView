@@ -16,7 +16,6 @@
 }
 
 - (void)destroyItem {
-
     if (_item) {
         [_item removeFromSuperview];
     }
