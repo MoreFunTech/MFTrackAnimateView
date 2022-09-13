@@ -9,8 +9,17 @@
 
 @implementation MFTrackAnimateView
 
-+ (void)showWithStyle:(int)style {
-    
++ (MFTrackAnimateViewRotateExpandView *)rotateExpandViewWithFrame:(CGRect)frame configureModel:(MFTrackAnimateViewRotateExpandViewConfigureModel *)configureModel dataSource:(id)dataSource {
+    return [self rotateExpandViewWithFrame:frame configureModel:configureModel dataSource:dataSource selectActionBlock:^(NSUInteger selectIndex) { }];
 }
+
++ (MFTrackAnimateViewRotateExpandView *)rotateExpandViewWithFrame:(CGRect)frame configureModel:(MFTrackAnimateViewRotateExpandViewConfigureModel *)configureModel dataSource:(id)dataSource selectActionBlock:(void (^)(NSUInteger))selectActionBlock {
+    MFTrackAnimateViewRotateExpandView *view = [[MFTrackAnimateViewRotateExpandView alloc] initWithFrame:frame];
+    view.configureModel = configureModel;
+    view.dataSource = dataSource;
+    view.selectActionBlock = selectActionBlock;
+    return view;
+}
+
 
 @end
