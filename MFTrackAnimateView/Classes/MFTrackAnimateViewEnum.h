@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class MFTrackAnimateViewBasePathConfigureModel;
 
 @protocol MFTrackAnimateViewRotateExpandViewItemDelegate <NSObject>
 
@@ -21,5 +22,13 @@
 
 @optional
 - (void)didItemSelectWithIndex:(NSUInteger)index;
+
+@optional
+- (MFTrackAnimateViewBasePathConfigureModel *)pathConfigureForRowIndex:(NSUInteger)index originPathConfigure:(MFTrackAnimateViewBasePathConfigureModel *)originPathConfigure;
+
+@optional
+- (NSUInteger)numberOfItemTrackView;
+
+
 
 @end

@@ -26,7 +26,7 @@
     self.item = [[UIView alloc] initWithFrame:self.bounds];
     self.item.layer.cornerRadius = self.bounds.size.height / 2.0;
     self.item.clipsToBounds = YES;
-    self.item.backgroundColor = [UIColor colorWithRed:0.5 green:0.8 blue:0.2 alpha:1];
+    self.item.backgroundColor = [UIColor colorWithRed:0.8 green:0.2 blue:0.2 alpha:1];
     [self addSubview:self.item];
 }
 

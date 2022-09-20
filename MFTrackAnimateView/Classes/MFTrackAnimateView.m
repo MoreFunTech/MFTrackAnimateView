@@ -21,5 +21,11 @@
     return view;
 }
 
++ (MFTrackAnimateViewNormalExpandView *)normalExpandViewWithFrame:(CGRect)frame dataSource:(id)dataSource {
+    MFTrackAnimateViewNormalExpandView *normalExpandView = [[MFTrackAnimateViewNormalExpandView alloc] initWithFrame:frame];
+    normalExpandView.dataSource = dataSource;
+    return normalExpandView;
+}
+
 
 @end

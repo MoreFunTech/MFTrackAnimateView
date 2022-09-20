@@ -17,6 +17,8 @@
 #import "MFTrackAnimateViewDemoItem.h"
 #import "MFTrackAnimateViewEnum.h"
 #import "MFTrackAnimateViewHeader.h"
+#import "MFTrackAnimateViewNormalExpandView.h"
+#import "MFTrackAnimateViewPoint.h"
 #import "MFTrackAnimateViewRotateExpandView.h"
 
 FOUNDATION_EXPORT double MFTrackAnimateViewVersionNumber;
