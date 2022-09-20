@@ -29,7 +29,7 @@
         MFTrackAnimateViewBaseAnimate *itemAnimate = MFTrackAnimateViewBaseAnimate.defaultAnimate
                 .setDuring(pathConfigureModel.during)
                 .setPath(movePath)
-                .setRemoveOnComplete(YES)
+                .setRemoveOnComplete(NO)
                 .setFillMode(MFTrackAnimateViewBaseAnimateFillModeStyleForwards)
                 .setRepeatCount(1)
                 .setDelay(pathConfigureModel.delay)
