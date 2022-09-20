@@ -7,8 +7,8 @@
 #import "MFTrackAnimateViewBaseAnimate.h"
 #import "MFTrackAnimateViewBasePath.h"
 #import "MFTrackAnimateViewBaseView.h"
-#import "MFTrackAnimateViewRotateExpandView.h"
 #import "MFTrackAnimateViewEnum.h"
-
+#import "MFTrackAnimateViewRotateExpandView.h"
+#import "MFTrackAnimateViewNormalExpandView.h"
 
 

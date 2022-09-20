@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (MFTrackAnimateViewRotateExpandView *)rotateExpandViewWithFrame:(CGRect)frame
                                                    configureModel:(MFTrackAnimateViewRotateExpandViewConfigureModel *)configureModel
-        dataSource:(id <MFTrackAnimateViewRotateExpandViewDataSource>)dataSource;
+                                                       dataSource:(id <MFTrackAnimateViewRotateExpandViewDataSource>)dataSource;
 
 /**
  * 旋转展开轨道动画
@@ -37,7 +37,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (MFTrackAnimateViewRotateExpandView *)rotateExpandViewWithFrame:(CGRect)frame
                                                    configureModel:(MFTrackAnimateViewRotateExpandViewConfigureModel *)configureModel
                                                        dataSource:(id <MFTrackAnimateViewRotateExpandViewDataSource>)dataSource
-                                                selectActionBlock:(void(^)(NSUInteger selectIndex))selectActionBlock;
+                                                selectActionBlock:(void (^)(NSUInteger selectIndex))selectActionBlock;
+
+/**
+ * 普通展开视图
+ * @param frame 尺寸
+ * @param dataSource 数据源代理
+ * @return
+ */
++ (MFTrackAnimateViewNormalExpandView *)normalExpandViewWithFrame:(CGRect)frame
+                                                       dataSource:(id <MFTrackAnimateViewRotateExpandViewDataSource>)dataSource;
 
 @end
 

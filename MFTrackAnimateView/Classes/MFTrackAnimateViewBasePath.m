@@ -5,8 +5,83 @@
 #import "MFTrackAnimateViewBasePath.h"
 
 
+@implementation MFTrackAnimateViewBasePathConfigureModel {
+}
+
+/**
+ *
+@property (nonatomic) CGPoint startPoint;
+
+@property (nonatomic) CGPoint stopPoint;
+
+@property (nonatomic) CGPoint anchorPoint0;
+
+@property (nonatomic) CGPoint anchorPoint1;
+
+@property (nonatomic) CGPoint centerPoint;
+
+@property (nonatomic) CGFloat radius;
+
+@property (nonatomic) CGFloat startCircleAngle;
+
+@property (nonatomic) CGFloat stopCircleAngle;
+
+@property (nonatomic) BOOL isDirectionClockwise;
+ */
+
+- (MFTrackAnimateViewBasePathConfigureModel *)backPathConfigure {
+    MFTrackAnimateViewBasePathConfigureModel *copyModel = self.copy;
+    CGPoint startPoint = self.startPoint;
+    CGPoint stopPoint = self.stopPoint;
+    CGFloat startCircleAngle = self.startCircleAngle;
+    CGFloat stopCircleAngle = self.stopCircleAngle;
+    BOOL isDirectionClockwise = self.isDirectionClockwise;
+
+    copyModel.startPoint = stopPoint;
+    copyModel.stopPoint = startPoint;
+
+    copyModel.startCircleAngle = stopCircleAngle;
+    copyModel.stopCircleAngle = startCircleAngle;
+    copyModel.isDirectionClockwise = !isDirectionClockwise;
+
+    return copyModel;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    MFTrackAnimateViewBasePathConfigureModel *copy = [[[self class] allocWithZone:zone] init];
+
+    if (copy != nil) {
+        copy.pathStyle = self.pathStyle;
+        copy.delay = self.delay;
+        copy.during = self.during;
+        copy.dismissDuring = self.dismissDuring;
+        copy.startPoint = self.startPoint;
+        copy.stopPoint = self.stopPoint;
+        copy.anchorPoint0 = self.anchorPoint0;
+        copy.anchorPoint1 = self.anchorPoint1;
+        copy.centerPoint = self.centerPoint;
+        copy.radius = self.radius;
+        copy.startCircleAngle = self.startCircleAngle;
+        copy.stopCircleAngle = self.stopCircleAngle;
+        copy.isDirectionClockwise = self.isDirectionClockwise;
+    }
+
+    return copy;
+}
+
+
+@end
+
 @implementation MFTrackAnimateViewBasePath {
 
+}
+
+
++ (UIBezierPath *)linePathWithStartPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:startPoint];
+    [path addLineToPoint:endPoint];
+    return path;
 }
 
 + (UIBezierPath *)bezierPathWithStartPoint:(CGPoint)startPoint
@@ -45,6 +120,19 @@
     [path addArcWithCenter:centerPoint radius:radius startAngle:startAngle endAngle:endAngle clockwise:isDirectionClockwise];
     return path;
 }
+
++ (UIBezierPath *)pathWithPathConfigureModel:(MFTrackAnimateViewBasePathConfigureModel *)pathConfigureModel {
+    if (pathConfigureModel.pathStyle == MFTrackAnimateViewBasePathConfigureModelPathStyleLiner) {
+        return [MFTrackAnimateViewBasePath linePathWithStartPoint:pathConfigureModel.startPoint endPoint:pathConfigureModel.stopPoint];
+    } else if (pathConfigureModel.pathStyle == MFTrackAnimateViewBasePathConfigureModelPathStyleAnchorPointBezier) {
+        return [MFTrackAnimateViewBasePath bezierPathWithStartPoint:pathConfigureModel.startPoint endPoint:pathConfigureModel.stopPoint anchorPoint:pathConfigureModel.anchorPoint0];
+    } else if (pathConfigureModel.pathStyle == MFTrackAnimateViewBasePathConfigureModelPathStyleDoubleAnchorPointBezier) {
+        return [MFTrackAnimateViewBasePath bezierPathWithStartPoint:pathConfigureModel.startPoint endPoint:pathConfigureModel.stopPoint anchorPoint1:pathConfigureModel.anchorPoint0 anchorPoint2:pathConfigureModel.anchorPoint1];
+    } else if (pathConfigureModel.pathStyle == MFTrackAnimateViewBasePathConfigureModelPathStyleCircle) {
+        return [MFTrackAnimateViewBasePath circlePathWithCenterPoint:pathConfigureModel.centerPoint radius:pathConfigureModel.radius startCircleAngle:pathConfigureModel.startCircleAngle stopCircleAngle:pathConfigureModel.stopCircleAngle isDirectionClockwise:pathConfigureModel.isDirectionClockwise];
+    }
+    return [MFTrackAnimateViewBasePath linePathWithStartPoint:pathConfigureModel.startPoint endPoint:pathConfigureModel.stopPoint];
+};
 
 
 @end

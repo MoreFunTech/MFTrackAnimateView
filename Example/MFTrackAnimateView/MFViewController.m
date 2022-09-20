@@ -17,6 +17,7 @@
 @property(nonatomic, strong) UIView *item1;
 //@property (nonatomic, strong) MFTrackAnimateViewBaseAnimate *itemAnimate;
 @property(nonatomic, strong) MFTrackAnimateViewRotateExpandView *rotateExpandView;
+@property(nonatomic, strong) MFTrackAnimateViewNormalExpandView *normalExpandView;
 
 @end
 
@@ -29,6 +30,7 @@
 //    [self configureItemView];
 
     [self configureTrackView];
+//    [self configureNormalTrackView];
 
 }
 
@@ -109,7 +111,7 @@
     configureModel.delay = 1;
     configureModel.during = 1.5;
     configureModel.dismissDuring = 0.5;
-    configureModel.circleAngleList = @[@(0), @(30), @(60), @(90), @(120), @(176)];
+    configureModel.circleAngleList = @[@(80), @(30), @(60), @(90), @(120), @(176), @(320)];
     configureModel.distanceCircleAngle = 75;
     configureModel.isDirectionClockwise = NO;
     self.rotateExpandView = [MFTrackAnimateView rotateExpandViewWithFrame:CGRectMake(40, 200, 200, 200) configureModel:configureModel dataSource:self];
@@ -133,9 +135,37 @@
     [showButton addTarget:self action:@selector(showAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)configureNormalTrackView {
+
+    self.normalExpandView = [MFTrackAnimateView normalExpandViewWithFrame:CGRectMake(40, 200, 200, 200) dataSource:self];
+    [self.view addSubview:self.normalExpandView];
+    self.normalExpandView.backgroundColor = [UIColor colorWithRed:0.2 green:0.4 blue:0.4 alpha:1];
+    [self.normalExpandView configureSubviews];
+    self.normalExpandView.didAnimateStopBlock = ^(BOOL isShowAnimate) {
+        if (isShowAnimate) {
+            NSLog(@"弹出动画执行完毕");
+        } else {
+            NSLog(@"消失动画执行完毕");
+        }
+    };
+
+    UIButton *showButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 500, 80, 40)];
+    showButton.backgroundColor = [UIColor colorWithRed:0.4 green:0.3 blue:0.2 alpha:1];
+    [showButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    showButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [self.view addSubview:showButton];
+    [showButton setTitle:@"show" forState:UIControlStateNormal];
+    [showButton addTarget:self action:@selector(showAction) forControlEvents:UIControlEventTouchUpInside];
+}
+
 - (void)showAction {
-    self.rotateExpandView.configureModel.delay = 0;
-    [self.rotateExpandView showAction];
+    if (_rotateExpandView) {
+        self.rotateExpandView.configureModel.delay = 0;
+        [self.rotateExpandView showAction];
+    }
+    if (_normalExpandView) {
+        [self.normalExpandView showAction];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -154,8 +184,46 @@
 
 - (void)didItemSelectWithIndex:(NSUInteger)index {
     NSLog(@"代理选中了: %ld", index);
-    [self.rotateExpandView dismissAction];
+    if (_rotateExpandView) {
+        [self.rotateExpandView dismissAction];
+    }
+    if (_normalExpandView) {
+        [self.normalExpandView dismissAction];
+    }
 }
 
+- (MFTrackAnimateViewBasePathConfigureModel *)pathConfigureForRowIndex:(NSUInteger)index originPathConfigure:(MFTrackAnimateViewBasePathConfigureModel *)originPathConfigure {
+    if (index == 0) {
+
+
+        originPathConfigure.pathStyle = MFTrackAnimateViewBasePathConfigureModelPathStyleAnchorPointBezier;
+        originPathConfigure.startPoint = CGPointMake(100, 100);
+        originPathConfigure.stopPoint = CGPointMake(50, 50);
+        originPathConfigure.anchorPoint0 = CGPointMake(100, 50);
+        originPathConfigure.during = 2;
+        return originPathConfigure;
+    }
+   if (index == 1) {
+
+
+        originPathConfigure.pathStyle = MFTrackAnimateViewBasePathConfigureModelPathStyleAnchorPointBezier;
+        originPathConfigure.startPoint = CGPointMake(100, 100);
+        originPathConfigure.stopPoint = CGPointMake(150, 50);
+        originPathConfigure.anchorPoint0 = CGPointMake(100, 50);
+        originPathConfigure.during = 2;
+        return originPathConfigure;
+    }
+    originPathConfigure.pathStyle = MFTrackAnimateViewBasePathConfigureModelPathStyleAnchorPointBezier;
+    originPathConfigure.startPoint = CGPointMake(100, 100);
+    originPathConfigure.stopPoint = CGPointMake(150, 50);
+    originPathConfigure.anchorPoint0 = CGPointMake(100, 50);
+    originPathConfigure.during = 2;
+    return originPathConfigure;
+
+}
+
+- (NSUInteger)numberOfItemTrackView {
+    return 2;
+}
 
 @end
